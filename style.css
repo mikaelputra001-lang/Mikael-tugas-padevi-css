@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+h2{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+#navbar {
+    display: flex;
+    justify-content: space-between; /* Membagi ruang ke 3 bagian */
+    align-items: center;
+    background-color: black;
+    height: 50px;
+    padding: 0 20px;
+    position: -webkit-sticky; /* For Safari compatibility */
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+}
+
+.nav-left, .nav-right {
+    flex: 1; 
+}
+
+.nav-center {
+    display: flex;
+    gap: 80px;
+    flex: 2;
+    justify-content: center;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#back {
+    color: white;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+.navtxt {
+    color: white;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    white-space: nowrap; /* Biar teks tidak turun ke bawah kalau layar sempit */
+}
+
+.headbar {
+    background: linear-gradient(black,rgb(0, 0, 34));
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headtxt {
+    color: white;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+body {
+    background: rgb(0, 0, 173);
+    height: 100%;
+    color: white;
+}
+.yapp {
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    text-align: justify;
+    font-size: 20px;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#holder{
+    max-width: 800px;
+    max-height: 400px;
+    justify-content: right;
+    animation: float 3s ease-in-out infinite;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+/* 1. Definisikan gerakannya */
+@keyframes float {
+    0% {
+        transform: translateY(0px); /* Posisi awal */
+    }
+    50% {
+        transform: translateY(-20px); /* Naik ke atas 20 pixel */
+    }
+    100% {
+        transform: translateY(0px); /* Kembali ke posisi awal */
+    }
+}
+.news-wrapper {
+    display: flex;             /* Membuat kartu berjajar ke samping */
+    overflow-x: auto;          /* Memunculkan scrollbar jika konten meluap */
+    gap: 20px;                 /* Jarak antar kartu */
+    padding: 20px;
+    scroll-behavior: smooth;   /* Agar scroll terasa halus */
+    white-space: nowrap;       /* Mencegah kartu turun ke bawah */
+}
+
+/* 1. Atur ukuran dan jalur (track) scrollbar */
+.news-wrapper::-webkit-scrollbar {
+    height: 8px; /* Tinggi scrollbar horizontal */
+}
+
+.news-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3); /* Jalur agak gelap transparan */
+    border-radius: 10px;
+}
+
+/* 2. Atur warna batang (thumb) scrollbar */
+.news-wrapper::-webkit-scrollbar-thumb {
+    background: #ffffff; /* Putih biar kontras di atas background biru */
+    border-radius: 10px;
+    border: 1px solid #0000ad; /* Border biru biar rapi */
+}
+
+.news-card {
+    padding: 10px;
+    flex: 0 0 600px;           /* Kartu tidak akan menyusut, lebar tetap 300px */
+    background-color: #000041; /* Warna biru gelap Chelsea */
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.news-card img {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;           /* Centering gambar */
+}
+
+.news-card p {
+    color: white;
+    white-space: normal;       /* Supaya teks di dalam kartu tetap bisa turun ke bawah */
+    margin: 10px 0;
+}
+button {
+    background-color: #0000ad;
+    border:#ffffff 2px solid;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto; /* Centering button */
+}
+.playercard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000066;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 200px;
+    /* Smooth transition for transform and shadow */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.playercard p {
+    justify-content: end;
+    text-align: center;
+}
+.playercard img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+
+}
+.playercard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.cardbox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Agar kartu bisa turun ke baris berikutnya jika layar sempit */
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slides img {
+    width: 100%;
+    display: none;
+}
+
+.slides img.active {
+    display: block;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: rgba(4, 0, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background-color: rgba(4, 0, 255, 1);
+    width: 30px;
+    border-radius: 10px;
+}
+.academy-section {
+    display: block; /* Pastikan ganti baris */
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 50px;
+}
+.academy-section p {
+    color: white;
+    text-shadow: #000000 2px 2px 4px; /* Tambahkan bayangan untuk meningkatkan keterbacaan */
+
+}   
